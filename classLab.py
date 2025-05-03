@@ -44,16 +44,14 @@ sResults = sCalc(1000,100,f)
 pResults = pCalc(2,1000,100,f)
 
 benchmarks = [] # list to store our execution times
-
-benchmarks.append(timeit.Timer('sCalc(10000, 100, f)','from __main__ import sCalc, average_y, f').timeit(number=1))
+sTime=timeit.Timer('sCalc(10000, 100, f)','from __main__ import sCalc, average_y, f').timeit(number=1)
+benchmarks.append(sTime)
     # Note that we need to include a second line
     # that imports our functions from __main__.
     # This tells the timer what needs to be IN SCOPE
-
-benchmarks.append(timeit.Timer('pCalc(2, 10000, 100, f)','from __main__ import pCalc, average_y, f').timeit(number=1))
+pTeime=timeit.Timer('pCalc(2, 10000, 100, f)','from __main__ import pCalc, average_y, f').timeit(number=1)
+benchmarks.append(pTime)
     # Need to include number of processes
     # when timing the parallel implementation
 
-
-stime = benchmarks[0]
-ptime = benchmarks[1]
+benchmarks
